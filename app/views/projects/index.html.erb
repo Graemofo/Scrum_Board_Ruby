@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<%= render "navbar" %>
+<h1>Projects</h1>
+
+
+<div class="row" >
+   <div class="col-md-7" style=" border-radius:10px; background: rgba(100, 100, 100, 0.5);">
+     <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" style="color:white;">Project Title</th>
+            <th scope="col" style="color:white;">Manager</th>
+            <th scope="col" style="color:white;">Links</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% @projects.each do |project| %>
+            <tr scope="row">
+              <td style="color:white;"><b><h4><%= project.title %></h4></b></td>
+              <td style="color:white;"><%= project.manager.email %></td>
+              <td style="color:white;"><%= link_to 'Show', project %> | <%= link_to 'Edit', edit_project_path(project) %> | <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+   </div><!-- // end of column 1  -->
+
+
+   <div class="col-md-5" style=" border-radius:10px; background: rgba(240, 240, 240, 0.5);">
+     <h2><%= @agileTitle %></h2>
+     <a href="<%= @agileLink %>"><%= @agileLink %></a>
+
+     <h5><%= @agile_title %></h5>
+
+     <%= @feed.items.each do |item|  %>
+      <h5><%= @agile_title %></h5>
+     <% end  %>
+
+
+
+
+   </div><!-- //end of column 2 -->
+
+ </div>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>
+<%= link_to 'Back To Project Board', home_index_path %>

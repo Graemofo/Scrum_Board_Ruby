@@ -1,0 +1,87 @@
+
+ <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+ <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+
+<style>
+  body{
+  #  background-color: powderblue;
+  }
+.col-md-3{
+height: 600px;
+border-radius: 3px;
+text-align: center;
+# background-color: powderblue;
+}
+</style>
+
+<script>
+    function dragStart(event) {
+      event.dataTransfer.setData("Text", event.target.id);
+      document.getElementById("demo").innerHTML = "Started to drag the p element";
+    }
+
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      var data = event.dataTransfer.getData("Text");
+      event.target.appendChild(document.getElementById(data));
+      document.getElementById("demo").innerHTML = "The p element was dropped";
+    }
+</script>
+
+
+<div class="container">
+
+  <div class="row" >
+
+
+    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>To Do</h3><hr>
+
+                <div class="card" draggable="true" ondragstart="dragStart(event)" id="dragtarget" style="border: 1px solid grey;">
+
+                  <header class="w3-container w3-blue">
+                    <h3 style="color:white;">Task 1</h3>
+                  </header>
+                  <div class="w3-container">
+                    <p>Fix Tasks and Projects feature</p>
+                  </div>
+                  <div class="w3-container w3-blue">
+                      <h5>Graeme</h5>
+                  </div>
+                </div>
+
+                <div class="card" draggable="true" ondragstart="dragStart(event)" id="dragtarget" style="border: 1px solid grey;">
+
+                  <header class="w3-container w3-blue">
+                    <h3 style="color:white;">Task 2</h3>
+                  </header>
+                  <div class="w3-container">
+                    <p>Add functionality to cards and columns</p>
+                  </div>
+                  <div class="w3-container w3-blue">
+                      <h5>Graeme</h5>
+                  </div>
+                </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>In Progress</h3><hr></div>
+    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Testing</h3><hr></div>
+    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Complete</h3><hr></div>
+  </div>
+
+
+</div> <!-- /container -->
+
+</div>
+<div class="col-md-4" >Hello</div>
+</div>

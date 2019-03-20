@@ -1,0 +1,69 @@
+
+
+ <% if current_user %>
+
+    <%= render "navbar" %>
+    <%= render "board" %>
+     <div class="row" >
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="text-align:center"><h1>Ganban: Welcome User</h1></div>
+        <div class="col-md-4"></div>
+      </div>
+
+     <div class="row" >
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="text-align:center">
+          <h3><%= link_to "Log Out User", destroy_manager_session_path, method: :delete %></h3>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+
+
+<% elsif current_manager %>
+   <%= render "navbar" %>
+   <%= render "board" %>
+    <div class="row" >
+       <div class="col-md-4"></div>
+       <div class="col-md-4" style="text-align:center"><h1>Ganban: Welcome Manager<%=  %></h1></div>
+       <div class="col-md-4"></div>
+     </div>
+
+    <div class="row" >
+       <div class="col-md-4"></div>
+       <div class="col-md-4" style="text-align:center">
+         <h3>   <%= link_to "Log Out Manager ", destroy_user_session_path, method: :delete %> </h3>
+       </div>
+       <div class="col-md-4"></div>
+     </div>
+<% else %>
+      <div class="row" >
+         <div class="col-md-4"></div>
+         <div class="col-md-4" style="text-align:center"><h1>Ganban</h1></div>
+         <div class="col-md-4"></div>
+      </div>
+      <div class="row" >
+         <div class="col-md-4" style="text-align:center">
+           <h1>Users</h1><hr>
+           <h3> <%= link_to "New User Sign Up", new_user_registration_path %></h3><hr>
+           <h3> <%= link_to "User Log In", new_user_session_path%></h3><hr>
+         </div>
+         <div class="col-md-4" style="text-align:center"></div>
+         <div class="col-md-4" style="text-align:center">
+           <h1>Managers</h1><hr>
+           <h3><%= link_to "New Manager Sign Up", new_manager_registration_path %></h3><hr>
+           <h3> <%= link_to "Manager Log In", new_manager_session_path %></h3><hr>
+         </div>
+      </div>
+
+      <div class="row" >
+         <div class="col-md-4"></div>
+         <div class="col-md-4" style="text-align:center"><h1 style="color:white;"><%= @rss %></h1></div>
+         <div class="col-md-4"></div>
+      </div>
+
+
+
+
+
+
+<% end %>
