@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    @projects = Project.where(["title LIKE ?","%#{params[:search]}%"])
 
     require 'rss'
     require 'open-uri'
@@ -19,7 +20,7 @@ class ProjectsController < ApplicationController
     url = 'https://www.agileconnection.com/rss-agileconnection'
     open(url) do |rss|
       @feed = RSS::Parser.parse(rss)
-      puts "Title: #{@feed.channel.title}"
+    #  puts "Title: #{@feed.channel.title}"
       @feed.items.each do |item|
       #  puts "Item: #{item.title}"
         @agile_title = item.title

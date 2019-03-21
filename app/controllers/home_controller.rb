@@ -13,6 +13,7 @@ class HomeController < ApplicationController
 
     rss.items.each do |item|
 	     @rss = item.description
+       @rss_author = item.title
     end
   end
 

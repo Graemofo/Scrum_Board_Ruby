@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 #  match ':controller(/:action(/:id))', :via => :get
   root 'home#index'
   get 'projects/show', to: 'projects#show'
+#  get 'projects', to: 'projects#index'
+
 #  resources :projects
   # resources :managers do
   #   resources :projects

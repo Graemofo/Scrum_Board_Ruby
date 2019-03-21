@@ -2,6 +2,7 @@
 
  <% if current_user %>
 
+
     <%= render "navbar" %>
     <%= render "board" %>
      <div class="row" >
@@ -20,6 +21,7 @@
 
 
 <% elsif current_manager %>
+
    <%= render "navbar" %>
    <%= render "board" %>
     <div class="row" >
@@ -36,19 +38,19 @@
        <div class="col-md-4"></div>
      </div>
 <% else %>
-      <div class="row" >
+      <div class="row"  style="text-align:center">
          <div class="col-md-4"></div>
          <div class="col-md-4" style="text-align:center"><h1>Ganban</h1></div>
          <div class="col-md-4"></div>
       </div>
       <div class="row" >
-         <div class="col-md-4" style="text-align:center">
+         <div class="col-md-4" style="text-align:center; border-radius:10px; background: rgba(240, 240, 240, 0.5);">
            <h1>Users</h1><hr>
            <h3> <%= link_to "New User Sign Up", new_user_registration_path %></h3><hr>
            <h3> <%= link_to "User Log In", new_user_session_path%></h3><hr>
          </div>
          <div class="col-md-4" style="text-align:center"></div>
-         <div class="col-md-4" style="text-align:center">
+         <div class="col-md-4" style="text-align:center; border-radius:10px; background: rgba(240, 240, 240, 0.5);">
            <h1>Managers</h1><hr>
            <h3><%= link_to "New Manager Sign Up", new_manager_registration_path %></h3><hr>
            <h3> <%= link_to "Manager Log In", new_manager_session_path %></h3><hr>
@@ -57,7 +59,12 @@
 
       <div class="row" >
          <div class="col-md-4"></div>
-         <div class="col-md-4" style="text-align:center"><h1 style="color:white;"><%= @rss %></h1></div>
+         <div class="col-md-4" style="text-align:center; border-radius:10px; background: rgba(100, 100, 100, 0.5);"><h1 style="color:white;"><%= @rss %></h1></div>
+         <div class="col-md-4"></div>
+      </div>
+      <div class="row" >
+         <div class="col-md-4"></div>
+         <div class="col-md-4" style="text-align:center; border-radius:10px; background: rgba(240, 240, 240, 0.5);"><h5 style="color:white;"> by <%= @rss_author %></h5></div>
          <div class="col-md-4"></div>
       </div>
 
