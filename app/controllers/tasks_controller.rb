@@ -24,6 +24,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build
   end
 
+  
   # GET /tasks/1/edit
   def edit
   end

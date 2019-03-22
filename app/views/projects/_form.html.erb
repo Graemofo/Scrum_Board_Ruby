@@ -21,11 +21,14 @@
     <%= form.text_area :description %>
   </div>
 
+
+
+
   <div class="field">
     <%= project.manager.email %>
   </div>
-  
 
+<%= form.hidden_field :due, value: Sprint.end_time %>
   <div class="actions">
     <%= form.submit %>
   </div>
