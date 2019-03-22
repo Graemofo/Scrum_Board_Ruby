@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
-
+#My very own gem that has a very unfortunate name. I'm sorry
+#gem 'ganbangem'
+#New gem
+gem 'timeleft'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
