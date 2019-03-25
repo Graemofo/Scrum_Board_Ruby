@@ -17,7 +17,9 @@
           </tr>
         </thead>
         <tbody>
+
           <% @projects.each do |project| %>
+    #    <% if project.title.include? "Project" %>  
             <tr scope="row">
               <td style="color:white; text-align:center; background: rgba(0, 0, 50, 0.5);"><b><h5><%= project.title %></h5></b></td>
               <td style="color:white;"><%= project.manager.email %></td>
@@ -28,6 +30,7 @@
 
 
             </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>
@@ -40,11 +43,9 @@
      <h3><%= @agileTitle %></h3>
      <button type="button" class="btn btn-primary"><a href="<%= @agileLink %>">Link To Article</a></button>
      </span>
-     <h5><%= @agile_title %></h5>
 
-     <%= @feed.items.each do |item|  %>
-      <h5><%= @agile_title %></h5>
-     <% end  %>
+
+
 
 
 

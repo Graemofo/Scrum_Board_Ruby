@@ -1,46 +1,54 @@
-<%= form_with(model: task, local: true) do |form| %>
-  <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+
+<div class="container">
+  <div class="row"  >
+    <div class="col-md-4" ></div>
+    <div class="col-md-4" style="background: rgba(240, 240, 240, 0.5);">
+
+      <%= form_with(model: task, local: true) do |form| %>
+        <% if task.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+            <ul>
+            <% task.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_area :description %>
+        </div>
+
+
+        <div>
+          <%= form.hidden_field :project_id, value: @projectid %>
+        </div>
+
+
+        <div class="field">
+          <%= form.label :status %>
+          <%= form.collection_select :status, Task::CHOICES, :to_s, :to_s, :include_blank  => false %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
       <% end %>
-      </ul>
+
+<button type="button" class="btn btn-primary btn-xs"><%= link_to 'Back', tasks_path %></button>
+<button type="button" class="btn btn-primary btn-xs"><%= link_to 'Back To Project Board', home_index_path %></button>
+
+
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <div class="col-md-4" ></div>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-    <%= current_user.email %>
-  </div>
-
-<!-- <%= form.hidden_field :project_id, value: :project_id %> -->
-  <div class="field">
-    <%= form.label :project_id %>
-    <%= form.text_field "lol" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.collection_select :status, Task::CHOICES, :to_s, :to_s, :include_blank  => false %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div> <!-- /container -->

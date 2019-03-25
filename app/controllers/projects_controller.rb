@@ -1,12 +1,22 @@
+require 'observer'
+
 class ProjectsController < ApplicationController
+  include Observable
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
+  def add_observer(observer)
+    @observers << observer
+  end
 
+  def delete_observer
+    @observers.delete(observer)
+  end
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.all
     @projects = Project.where(["title LIKE ?","%#{params[:search]}%"])
+    @observers = []
 
     require 'rss'
     require 'open-uri'
@@ -46,11 +56,15 @@ class ProjectsController < ApplicationController
   def edit
   end
 
+
+
   # POST /projects
   # POST /projects.json
   def create
     @project = Project.new(project_params)
     @project.manager_id = current_manager.id
+    changed
+    notify_observers(self)
 
     respond_to do |format|
       if @project.save
@@ -77,6 +91,8 @@ class ProjectsController < ApplicationController
       end
     end
   end
+
+
 
   # DELETE /projects/1
   # DELETE /projects/1.json

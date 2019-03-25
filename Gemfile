@@ -13,6 +13,11 @@ gem 'sqlite3', '~> 1.3.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
+#Better errors
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
 gem 'devise'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
