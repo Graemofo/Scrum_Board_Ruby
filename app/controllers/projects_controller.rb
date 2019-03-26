@@ -66,6 +66,7 @@ class ProjectsController < ApplicationController
     changed
     notify_observers(self)
 
+    NewProjectCreatedMailer.notify_users.deliver
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -115,4 +116,13 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:title, :description, :manager_id)
     end
+end
+
+class ProjectDecorator < SimpleDelegator
+  def sprint_review
+    create.create_sprint_review
+  end
+
+  def sprint_retro
+  end
 end
