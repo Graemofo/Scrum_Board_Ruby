@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<%= render "navbar" %>
 
 <h1>Tasks</h1>
 
@@ -30,6 +31,43 @@
 
   </tbody>
 </table>
+
+----------------------------------------------------
+
+<div class="row" >
+   <div class="col-md-8" style=" border-radius:10px; border:1px solid white; background: rgba(100, 100, 100, 0.5);">
+     <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" style="color:white; text-align:center;">Task Name</th>
+            <th scope="col" style="color:white; text-align:center;">Description</th>
+            <th scope="col" style="color:white; text-align:center;">Project</th>
+            <th scope="col" style="color:white; text-align:center;">Links</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        <% @tasks.each do |task| %>
+
+            <tr scope="row">
+              <td style="color:white; text-align:center; background: rgba(0, 0, 50, 0.5);"><b><h5><%= task.title %></h5></b></td>
+              <td style="color:white; text-align:center;"><%= task.description %></td>
+              <td style="color:white; text-align:center;"><%= task.projectname %></td>
+              <td style="text-align:center;background: rgba(240, 240, 240, 0.5);"><%= link_to 'Show', task %> | <%= link_to 'Edit', edit_task_path(task) %> | <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+
+   </div><!-- // end of column 1  -->
+
+
+   <div class="col-md-4" style="text-align:center; border-radius:10px;border: 1px solid white; background: rgba(240, 240, 240, 0.5);">
+
+
+   </div><!-- //end of column 2 -->
+ </div>
 
 <br>
 

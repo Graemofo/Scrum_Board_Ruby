@@ -21,6 +21,7 @@ class TasksController < ApplicationController
   # end
   def new
   #  @project = Project.find(params[:project_id])
+  #  @task = @project.tasks.new
     @task = current_user.tasks.build
 
   end
@@ -44,13 +45,14 @@ class TasksController < ApplicationController
   #  @projectid = current_project(Project.id)
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to projects_path, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /tasks/1
@@ -58,7 +60,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to projects_path, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
@@ -72,7 +74,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to projects_path, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

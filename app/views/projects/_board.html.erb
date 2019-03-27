@@ -46,15 +46,22 @@ text-align: center;
       <% if task.status.include? "To Do" %>
       <% if task.projectname.include? @project.title %>
       <div class="card" draggable="true" ondragstart="dragStart(event)" id="dragtarget" style="border: 1px solid grey; border-radius:5px;">
-        <header class="w3-container w3-blue">
-          <h3 style="color:black;"><%= task.title %></h3>
+        <header class="w3-container w3-blue" style="background: rgba(100, 100, 100, 0.5);">
+          <div class="row">
+            <div class="col-md-6"><h3 style="color:black;"><%= task.title %></h3></div>
+            <div class="col-md-6"><h5><%= task.projectname %></h5></div>
+          </div>
+
         </header>
         <div class="w3-container">
           <p><%= task.description %></p>
-          <p><%= task.projectname %></p>
 
         </div>
-  <%= link_to 'Show', task %>  |  <%= link_to 'Edit', edit_task_path(task) %> | <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="row">
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-xs"><%= link_to 'Show', task %></button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-xs"><%= link_to 'Edit', edit_task_path(task) %></button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-xs"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></button></div>
+          </div>
       </div>
       <% end %>
       <% end %>
