@@ -66,7 +66,7 @@ class ProjectsController < ApplicationController
   #  changed
   #  notify_observers(self)
 
-    NewProjectCreatedMailer.notify_users.deliver
+    #NewProjectCreatedMailer.notify_users.deliver
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
