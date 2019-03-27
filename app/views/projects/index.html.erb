@@ -8,11 +8,12 @@
      <table class="table">
         <thead>
           <tr>
-            <th scope="col" style="color:white;">Project Title</th>
-            <th scope="col" style="color:white;">Manager</th>
-            <th scope="col" style="color:white;">Links</th>
-            <th scope="col" style="color:white;">Start Date</th>
-            <th scope="col" style="color:white;">Due Date</th>
+            <th scope="col" style="color:white; text-align:center;">Project Title</th>
+            <th scope="col" style="color:white; text-align:center;">Manager</th>
+            <th scope="col" style="color:white; text-align:center;">Links</th>
+            <th scope="col" style="color:white; text-align:center;">Start Date</th>
+            <th scope="col" style="color:white; text-align:center;">Due Date</th>
+
 
           </tr>
         </thead>
@@ -22,13 +23,14 @@
 
             <tr scope="row">
               <td style="color:white; text-align:center; background: rgba(0, 0, 50, 0.5);"><b><h5><%= project.title %></h5></b></td>
-              <td style="color:white;"><%= project.manager.email %></td>
+              <td style="color:white; text-align:center;"><%= project.manager.email %></td>
               <td style="text-align:center;background: rgba(240, 240, 240, 0.5);"><%= link_to 'Show', project %> | <%= link_to 'Edit', edit_project_path(project) %> | <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <td style="color:white;"><%= project.created_at.strftime("%F %T") %></td>
-              <td style="color:white;"><%= Sprint.end_time  %></td>
+              <td style="color:white; text-align:center;"><%= project.created_at.strftime("%d/%m") %></td>
+              <td style="color:white; text-align:center;"><%= project.due  %></td>
+
             </tr>
             <% end %>
-      
+
         </tbody>
       </table>
 

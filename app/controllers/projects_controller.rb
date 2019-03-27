@@ -1,7 +1,7 @@
-require 'observer'
+#require 'observer'
 
 class ProjectsController < ApplicationController
-  include Observable
+#  include Observable
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def add_observer(observer)
@@ -63,8 +63,8 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.manager_id = current_manager.id
-    changed
-    notify_observers(self)
+  #  changed
+  #  notify_observers(self)
 
     NewProjectCreatedMailer.notify_users.deliver
     respond_to do |format|
@@ -114,7 +114,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :description, :manager_id)
+      params.require(:project).permit(:title, :description, :manager_id, :due)
     end
 end
 
