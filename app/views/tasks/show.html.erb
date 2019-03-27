@@ -11,14 +11,11 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @task.user %>
+  <strong>Project Name:</strong>
+  <%= @task.projectname %>
 </p>
 
-<p>
-  <strong>Project:</strong>
-  <%= @task.project %>
-</p>
+
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

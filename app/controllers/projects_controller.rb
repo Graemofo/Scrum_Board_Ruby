@@ -45,6 +45,7 @@ class ProjectsController < ApplicationController
   def show
     #  @manager = Manager.find(params[:manager_id])
     @project = Project.find(params[:id])
+    @tasks = Task.all
     #  @project = Project.find(project_params)
   end
 

@@ -42,11 +42,93 @@ text-align: center;
     <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>To Do</h3><hr>
 
 
+      <% @tasks.each do |task| %>
+      <% if task.status.include? "To Do" %>
+      <% if task.projectname.include? @project.title %>
+      <div class="card" draggable="true" ondragstart="dragStart(event)" id="dragtarget" style="border: 1px solid grey; border-radius:5px;">
+        <header class="w3-container w3-blue">
+          <h3 style="color:black;"><%= task.title %></h3>
+        </header>
+        <div class="w3-container">
+          <p><%= task.description %></p>
+          <p><%= task.projectname %></p>
+
+        </div>
+  <%= link_to 'Show', task %>  |  <%= link_to 'Edit', edit_task_path(task) %> | <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+
+
     </div>
 
-    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>In Progress</h3><hr></div>
-    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Testing</h3><hr></div>
-    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Complete</h3><hr></div>
+    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>In Progress</h3><hr>
+
+      <% @tasks.each do |task| %>
+      <% if task.status.include? "In Progress" %>
+      <% if task.projectname.include? @project.title %>
+      <div class="card" draggable="true" ondragstart="dragStart(event)" id="dragtarget" style="border: 1px solid grey; border-radius:5px;">
+        <header class="w3-container w3-blue">
+          <h3 style="color:black;"><%= task.title %></h3>
+        </header>
+        <div class="w3-container">
+          <p><%= task.description %></p>
+          <p><%= task.projectname %></p>
+
+        </div>
+  <%= link_to 'Show', task %>  |  <%= link_to 'Edit', edit_task_path(task) %> | <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+
+
+    </div>
+    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Testing</h3><hr>
+
+      <% @tasks.each do |task| %>
+      <% if task.status.include? "Testing" %>
+      <% if task.projectname.include? @project.title %>
+      <div class="card" draggable="true" ondragstart="dragStart(event)" id="dragtarget" style="border: 1px solid grey; border-radius:5px;">
+        <header class="w3-container w3-blue">
+          <h3 style="color:black;"><%= task.title %></h3>
+        </header>
+        <div class="w3-container">
+          <p><%= task.description %></p>
+          <p><%= task.projectname %></p>
+
+        </div>
+  <%= link_to 'Show', task %>  |  <%= link_to 'Edit', edit_task_path(task) %> | <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+
+
+    </div>
+    <div class="col-md-3" style="border: 1px solid grey;" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Complete</h3><hr>
+
+      <% @tasks.each do |task| %>
+      <% if task.status.include? "Complete" %>
+      <% if task.projectname.include? @project.title %>
+      <div class="card" draggable="true" ondragstart="dragStart(event)" id="dragtarget" style="border: 1px solid grey; border-radius:5px;">
+        <header class="w3-container w3-blue">
+          <h3 style="color:black;"><%= task.title %></h3>
+        </header>
+        <div class="w3-container">
+          <p><%= task.description %></p>
+          <p><%= task.projectname %></p>
+
+        </div>
+  <%= link_to 'Show', task %>  |  <%= link_to 'Edit', edit_task_path(task) %> | <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+
+
+    </div>
   </div>
 
 

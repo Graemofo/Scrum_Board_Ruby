@@ -43,8 +43,8 @@
 
 
         <div class="field">
-          <%= form.label :project_name %>
-          <%= form.select :title, Project.all.collect {|project| [project.title, project.title]}, :include_blank => true %>
+          <%= form.label :projectname %>
+          <%= form.select :projectname, Project.all.collect {|project| [project.title, project.title]}, :include_blank => true %>
 
         </div>
 

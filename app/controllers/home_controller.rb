@@ -1,11 +1,6 @@
 class HomeController < ApplicationController
 
 
-
-
-
-
-
   def index
     require 'rss'
     require 'open-uri'
