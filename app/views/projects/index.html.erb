@@ -38,7 +38,25 @@
    <div class="col-md-4" style="text-align:center; border-radius:10px;border: 1px solid white; background: rgba(240, 240, 240, 0.5);">
      <span>
      <h3><%= @agileTitle %></h3>
-     <button type="button" class="btn btn-primary btn-xs"><a href="<%= @agileLink %>">Link To Article</a></button>
+
+<% @rss.items.each do |item| %>
+     <div class="card"  style="border: 1px solid purple; border-radius:5px; margin-bottom: 4px;">
+       <header class="w3-container w3-blue">
+         <h5 style="color:black;"><i>"<%= @agileTitle = item.title %>"</i></h5>
+       </header>
+       <div class="w3-container">
+         <div class="row" >
+            <div class="col-md-8"></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-xs" style="margin:3px;"><a href="@agileLink = item.link">Article</a></button></div>
+          </div>
+         </div>
+       </div>
+   <% end %>
+
+
+
+          <p></p>
+
      </span>
 
 

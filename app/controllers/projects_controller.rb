@@ -20,12 +20,8 @@ class ProjectsController < ApplicationController
 
     require 'rss'
     require 'open-uri'
-    rss = RSS::Parser.parse('https://www.agileconnection.com/rss-agileconnection')
+    @rss = RSS::Parser.parse('https://www.agileconnection.com/rss-agileconnection')
 
-    rss.items.each do |item|
-       @agileTitle = item.title
-       @agileLink = item.link
-    end
 
     url = 'https://www.agileconnection.com/rss-agileconnection'
     open(url) do |rss|
