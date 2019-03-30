@@ -44,6 +44,9 @@ Rails.application.configure do
   # I added this because a tutorial told me to.
   config.serve_static_files = true
 #action mailer shit below
+
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
