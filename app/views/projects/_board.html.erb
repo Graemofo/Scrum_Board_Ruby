@@ -46,7 +46,7 @@ text-align: center;
         <% @tasks.each do |task| %>
         <% if task.status.include? "To Do" %>
         <% if task.projectname.include? @project.title %>
-        <div class="card" draggable="true" ondragstart="dragStart(event)" id="dragtarget" style="border: 1px solid purple; border-radius:5px;">
+        <div class="card" draggable="true" ondragstart="dragStart(event)" id="dragtarget" style="border: 1px solid purple; border-radius:5px;  margin-bottom: 6px;">
           <header class="w3-container w3-blue">
             <h3 style="color:black;"><%= task.title %></h3>
           </header>
