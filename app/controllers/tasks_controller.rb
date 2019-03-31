@@ -90,3 +90,10 @@ class TasksController < ApplicationController
       params.require(:task).permit(:title, :description, :user_id, :projectname, :status)
     end
 end
+
+
+class TaskDecorator < SimpleDelegator
+  def difficulty_rating(diff)
+    Task.diff = diff
+  end
+end

@@ -7,7 +7,7 @@ one:
   project: one
 
 two:
-  title: MyString
-  description: MyText
+  title: MyString_two
+  description: MyText_two
   user: two
   project: two

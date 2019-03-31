@@ -6,6 +6,6 @@ one:
   manager: one
 
 two:
-  title: MyString
-  description: MyText
+  title: MyString_two
+  description: MyText_two
   manager: two
