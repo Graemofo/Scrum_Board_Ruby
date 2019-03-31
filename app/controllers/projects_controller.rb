@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
     require 'open-uri'
     @rss = RSS::Parser.parse('https://www.agileconnection.com/rss-agileconnection')
 
-
+#this will be used in the projects page to display helful links to all things agile and kanban
     url = 'https://www.agileconnection.com/rss-agileconnection'
     open(url) do |rss|
       @feed = RSS::Parser.parse(rss)

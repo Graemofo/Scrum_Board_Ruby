@@ -1,5 +1,5 @@
 class NewProjectCreatedMailer < ApplicationMailer
-
+#this class is used to send emails to all users after a project has been created by a manager
   def notify_user(user)
     @user = user
     mail(to: @user, subject: "New Project Created")

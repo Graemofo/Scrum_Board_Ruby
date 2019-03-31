@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 #My very own gem that has a very unfortunate name. I'm sorry
 #gem 'ganbangem'
-#New gem
+#New gem to set the expected due date displayed in the projects page
 gem 'timeleft', :git => 'git://github.com/Graemofo/timeleft'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

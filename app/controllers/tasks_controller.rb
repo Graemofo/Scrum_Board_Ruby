@@ -5,9 +5,6 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
-  #  @project = Project.find(params[:project_id])
-  #Access all tasks associated with this project
-  #  @task = @project.tasks
   end
 
   # GET /tasks/1
@@ -15,15 +12,8 @@ class TasksController < ApplicationController
   def show
   end
 
-  # GET /tasks/new
-  # def new
-  #   @task = Task.new
-  # end
   def new
-  #  @project = Project.find(params[:project_id])
-  #  @task = @project.tasks.new
     @task = current_user.tasks.build
-
   end
 
 
@@ -31,18 +21,10 @@ class TasksController < ApplicationController
   def edit
   end
 
-  # def create
-  #   @task = current_user.tasks.build(task_params)
-  #   @task.project = current_project(:project_id)
-  # end
-
-  # POST /tasks
-  # POST /tasks.json
 
   def create
-  #  @project = Project.find(params[:project_id])
+
     @task = current_user.tasks.build(task_params)
-  #  @projectid = current_project(Project.id)
     respond_to do |format|
       if @task.save
         format.html { redirect_to projects_path, notice: 'Task was successfully created.' }

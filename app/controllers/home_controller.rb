@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-
+#On the home page, this code will add a uplifting quote every day 
   def index
     require 'rss'
     require 'open-uri'
